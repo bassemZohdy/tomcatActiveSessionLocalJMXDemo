@@ -26,6 +26,8 @@ public class DemoApplication implements CommandLineRunner {
 	String managmentAgentJar;
 	@Value("${application.name}")
 	String applicationName;
+	@Value("${context}")
+	String context;
 	@Override
 	public void run(String... args) throws Exception {
 		// TODO Auto-generated method stub
@@ -53,7 +55,7 @@ public class DemoApplication implements CommandLineRunner {
 				.getMBeanServerConnection();
 
 		final ObjectName objectName = new ObjectName(
-				"Catalina:type=Manager,host=localhost,context=/");
+				"Catalina:type=Manager,host=localhost,context="+context);
 		System.out.println("Start");
 
 		System.out.println("ActiveSession = "
